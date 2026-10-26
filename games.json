@@ -1,8 +1,11 @@
-[
-  {
-    "title": "Mon jeu",
-    "category": "Action",
-    "creator": "Buildrora",
-    "url": "https://exemple.com/jeu"
-  }
-]
+{
+  "id": "1",
+  "title": "112 opérateur",
+  "url": "",
+  "description": "",
+  "creator": "Buildora Studio",
+  "category": "Stratégie",
+  "icon": "",
+  "cover": "",
+  "featured": false
+}

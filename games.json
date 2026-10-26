@@ -1,11 +1,16 @@
 {
-  "id": "1",
-  "title": "112 opérateur",
-  "url": "",
-  "description": "",
-  "creator": "Buildora Studio",
-  "category": "Stratégie",
-  "icon": "",
-  "cover": "",
-  "featured": false
+  "version": 1,
+  "games": [
+    {
+      "id": "1",
+      "title": "112 opérateur",
+      "url": "https://buildorastudio2023.github.io/TON-JEU/",
+      "description": "Jeu de simulation de gestion des appels d'urgence.",
+      "creator": "Buildora Studio",
+      "category": "Stratégie",
+      "icon": "",
+      "cover": "",
+      "featured": false
+    }
+  ]
 }

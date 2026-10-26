@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Proposez votre jeu à Buildora Game Store.">
+  <title>Publier son jeu — Buildora Game Store</title>
+  <style>
+    :root {
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --blue-light: #eff6ff;
+      --text: #172033;
+      --muted: #657084;
+      --border: #e5e9f0;
+      --background: #f7f9fc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(960px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 750;
+      letter-spacing: -.4px;
+    }
+
+    .brand-mark {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: var(--blue);
+      border-radius: 9px;
+      font-weight: 800;
+    }
+
+    .back-link {
+      color: #566176;
+      font-size: 14px;
+    }
+
+    .back-link:hover { color: var(--blue); }
+
+    main { padding: 48px 0 68px; }
+
+    .intro { max-width: 700px; margin-bottom: 28px; }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 5px 10px;
+      background: #e5edff;
+      color: var(--blue-dark);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 13px;
+    }
+
+    h1 {
+      margin: 0 0 13px;
+      font-size: clamp(32px, 5vw, 43px);
+      line-height: 1.15;
+      letter-spacing: -1.3px;
+    }
+
+    .intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .panel {
+      padding: 27px;
+      margin-bottom: 18px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin: 0 0 14px;
+      letter-spacing: -.3px;
+    }
+
+    p { color: #596579; }
+
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+    }
+
+    .step-number {
+      flex: 0 0 31px;
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      border-radius: 8px;
+      font-weight: 750;
+      font-size: 13px;
+    }
+
+    .step strong { display: block; margin-bottom: 3px; }
+    .step p { margin: 0; font-size: 14px; }
+
+    .details {
+      margin: 0;
+      padding-left: 19px;
+      color: #596579;
+    }
+
+    .details li { margin: 7px 0; }
+
+    .notice {
+      padding: 15px 17px;
+      border: 1px solid #d9e5fb;
+      border-radius: 9px;
+      background: #f4f7ff;
+      color: #405477;
+      font-size: 14px;
+    }
+
+    .notice strong { color: #234b91; }
+
+    .contact-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .contact-box h2 { margin-bottom: 5px; }
+    .contact-box p { margin: 0; font-size: 14px; }
+
+    .email {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--blue-dark);
+      font-weight: 650;
+      overflow-wrap: anywhere;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 43px;
+      padding: 10px 16px;
+      border-radius: 9px;
+      background: var(--blue);
+      color: white;
+      font-size: 14px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .button:hover { background: var(--blue-dark); }
+
+    footer {
+      background: white;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-links { display: flex; gap: 17px; }
+    .footer-links a:hover { color: var(--blue); }
+
+    @media (max-width: 620px) {
+      .container { width: calc(100% - 28px); }
+      .nav { min-height: 62px; }
+      .brand { font-size: 14px; }
+      main { padding: 35px 0 45px; }
+      .panel { padding: 20px; }
+      .contact-box { align-items: flex-start; flex-direction: column; padding: 20px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; padding: 18px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">B</span>
+        <span>Buildora Game Store</span>
+      </a>
+      <a class="back-link" href="index.html">← Retour au catalogue</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <span class="eyebrow">Espace créateurs</span>
+      <h1>Publiez votre jeu sur Buildora.</h1>
+      <p>
+        Vous avez créé un jeu et souhaitez le proposer au catalogue ?
+        Envoyez-nous les informations nécessaires. Chaque proposition est examinée avant une éventuelle publication.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2>Comment proposer votre jeu ?</h2>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-number">1</span>
+          <div>
+            <strong>Préparez votre jeu</strong>
+            <p>Le jeu doit fonctionner correctement dans un navigateur. Envoyez le fichier HTML et les autres fichiers nécessaires à son fonctionnement, si le jeu en utilise.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-number">2</span>
+          <div>
+            <strong>Présentez votre projet</strong>
+            <p>Indiquez le nom du jeu, une description, les commandes et les éventuelles conditions nécessaires pour y jouer.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-number">3</span>
+          <div>
+            <strong>Envoyez votre proposition</strong>
+            <p>Contactez-nous par e-mail et joignez les fichiers de votre jeu. Vous pouvez également fournir une image de présentation.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-number">4</span>
+          <div>
+            <strong>Attendez notre réponse</strong>
+            <p>Nous vérifions notamment le fonctionnement du jeu, les informations fournies et les droits associés avant de décider si nous pouvons le publier.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="panel">
+      <h2>Informations à fournir</h2>
+      <ul class="details">
+        <li><strong>Nom du jeu :</strong> le titre à afficher dans le catalogue.</li>
+        <li><strong>Description :</strong> quelques phrases pour présenter le jeu.</li>
+        <li><strong>Fichiers du jeu :</strong> le fichier HTML et les éventuels fichiers associés, idéalement regroupés dans une archive ZIP si nécessaire.</li>
+        <li><strong>Nom du créateur :</strong> facultatif, si vous souhaitez qu'il soit affiché sur la page du jeu.</li>
+        <li><strong>Illustration :</strong> facultative, pour présenter le jeu dans le catalogue.</li>
+        <li><strong>Catégorie :</strong> facultative, par exemple réflexion, arcade ou simulation.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Avant d'envoyer votre jeu</h2>
+      <ul class="details">
+        <li>Vous devez disposer des droits nécessaires sur le jeu et ses ressources, ou avoir l'autorisation de les utiliser.</li>
+        <li>N'incluez pas de données personnelles, de mots de passe ou de clés secrètes dans les fichiers transmis.</li>
+        <li>Précisez si le jeu dépend d'une connexion Internet, d'un service externe ou d'autres fichiers.</li>
+        <li>L'envoi d'une proposition ne garantit pas son acceptation ni sa publication.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Rémunération</h2>
+      <p>
+        Buildora Game Store ne propose actuellement aucune rémunération pour les jeux soumis.
+        Une éventuelle évolution du service, notamment l'intégration de publicités ou d'un système de revenus,
+        dépendra des démarches nécessaires, des autorisations applicables et des conditions qui seront définies à ce moment-là.
+        Aucune rémunération future n'est garantie.
+      </p>
+    </section>
+
+    <div class="notice">
+      <strong>À savoir :</strong> le bouton ci-dessous ouvre votre application de messagerie.
+      Vous devrez ajouter vous-même le fichier HTML ou l'archive ZIP en pièce jointe avant d'envoyer votre e-mail.
+    </div>
+
+    <section class="contact-box" style="margin-top: 18px;">
+      <div>
+        <h2>Envoyer une proposition</h2>
+        <p>Contact : <a class="email" href="mailto:metaserviceofficiel@gmail.com">metaserviceofficiel@gmail.com</a></p>
+      </div>
+      <a
+        class="button"
+        href="mailto:metaserviceofficiel@gmail.com?subject=Proposition%20de%20jeu%20-%20Buildora%20Game%20Store&body=Bonjour%2C%0A%0AJe%20souhaite%20proposer%20un%20jeu%20pour%20Buildora%20Game%20Store.%0A%0ANom%20du%20jeu%20%3A%0ADescription%20%3A%0ANom%20du%20cr%C3%A9ateur%20(facultatif)%20%3A%0ACat%C3%A9gorie%20(facultatif)%20%3A%0A%0AJ'ai%20joint%20les%20fichiers%20n%C3%A9cessaires%20%C3%A0%20cet%20e-mail.%0A%0ACordialement."
+      >Préparer mon e-mail ↗</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Buildora Game Store</span>
+      <nav class="footer-links" aria-label="Liens de pied de page">
+        <a href="index.html">Accueil</a>
+        <a href="aide.html" target="_blank" rel="noopener">Centre d'aide</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

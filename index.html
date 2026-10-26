@@ -1,36 +1,195 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#101827">
-<title>Publier son jeu — Buildora Game Store</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>Buildora Game Store</title>
 <style>
-:root{color-scheme:dark;--bg:#0d1320;--surface:#151e2e;--blue:#4d83f5;--blue2:#376fe8;--text:#edf2fb;--muted:#9aa8bd;--border:#29364b}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}a{text-decoration:none;color:inherit}.container{width:min(900px,calc(100% - 36px));margin:auto}header,footer{background:#111a29;border-color:var(--border);border-style:solid;border-width:0 0 1px}.nav,.footer-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:750}.mark{width:35px;height:35px;display:grid;place-items:center;background:var(--blue);border-radius:9px}.back{font-size:14px;color:#c0cad9}.back:hover{color:#8eb0ff}main{padding:45px 0 65px}.eyebrow{display:inline-block;background:#20365c;color:#b8ceff;border-radius:6px;padding:5px 10px;font-size:12px;font-weight:700;margin-bottom:13px}h1{font-size:clamp(32px,5vw,44px);line-height:1.15;letter-spacing:-1px;margin:0 0 12px}.intro{max-width:720px;margin-bottom:28px}.intro p{color:var(--muted);margin:0}.panel{padding:25px;margin-bottom:17px;background:var(--surface);border:1px solid var(--border);border-radius:12px}h2{font-size:20px;margin:0 0 14px}.steps{list-style:none;padding:0;margin:0;display:grid;gap:17px}.step{display:flex;gap:13px;align-items:flex-start}.number{flex:0 0 31px;height:31px;display:grid;place-items:center;border-radius:8px;background:#20365c;color:#c8d9ff;font-weight:700}.step strong{display:block}.step p{margin:3px 0 0;color:#b0bdd0;font-size:14px}.details{padding-left:20px;color:#b0bdd0}.details li{margin:7px 0}.notice{padding:15px 17px;background:#172640;border:1px solid #30466a;border-radius:9px;color:#c0cee5;font-size:14px}.notice strong{color:#c8d9ff}.contact{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:17px;padding:23px;background:var(--surface);border:1px solid var(--border);border-radius:12px}.contact h2{margin-bottom:5px}.contact p{margin:0;color:var(--muted);font-size:14px}.email{color:#8eb0ff;overflow-wrap:anywhere}.button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border-radius:8px;background:var(--blue);color:white;font-size:14px;font-weight:650;white-space:nowrap}.button:hover{background:var(--blue2)}.footer-inner{color:var(--muted);font-size:13px}.footer-links{display:flex;gap:17px}.footer-links a:hover{color:#8eb0ff}
-@media(max-width:600px){.container{width:calc(100% - 28px)}.nav{min-height:62px}.brand{font-size:14px}main{padding:34px 0 45px}.panel{padding:19px}.contact{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column;padding:17px 0}}
+:root{color-scheme:dark;--bg:#0d1320;--surface:#151e2e;--surface2:#1b2639;--blue:#4d83f5;--blue2:#376fe8;--text:#edf2fb;--muted:#9aa8bd;--border:#29364b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+a{text-decoration:none;color:inherit}
+.container{width:min(1160px,calc(100% - 36px));margin:auto}
+header,footer{background:#111a29;border-color:var(--border);border-style:solid;border-width:0 0 1px}
+.nav,.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:70px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:750;font-size:18px}
+.brand-mark{width:36px;height:36px;display:grid;place-items:center;background:var(--blue);border-radius:9px;color:white;font-weight:800}
+.nav-links,.footer-links{display:flex;align-items:center;gap:20px;font-size:14px;color:#c0cad9}
+.nav-links a:hover,.footer-links a:hover{color:#8eb0ff}
+.button{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;min-height:42px;border-radius:8px;font-size:14px;font-weight:650;border:1px solid var(--border)}
+.primary{background:var(--blue);border-color:var(--blue);color:white}
+.primary:hover,.play:hover{background:var(--blue2)}
+.secondary{background:var(--surface);color:var(--text)}
+.hero{padding:65px 0 48px;background:linear-gradient(180deg,#172744,var(--bg));border-bottom:1px solid var(--border)}
+.hero-content{max-width:720px}
+.eyebrow{display:inline-block;padding:5px 10px;border-radius:6px;background:#20365c;color:#b8ceff;font-size:12px;font-weight:700;margin-bottom:15px}
+h1{font-size:clamp(34px,5vw,52px);line-height:1.1;letter-spacing:-1.5px;margin:0}
+.hero p{font-size:17px;color:#b0bdd0;max-width:600px;margin:18px 0 25px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+main{padding:38px 0 65px}
+.heading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:22px}
+h2{font-size:25px;letter-spacing:-.5px;margin:0 0 5px}
+.subtext{font-size:14px;color:var(--muted);margin:0}
+.search{width:min(330px,100%);padding:12px 14px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);outline:none}
+.search:focus{border-color:var(--blue)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.filter{padding:7px 13px;border:1px solid var(--border);border-radius:7px;background:var(--surface);color:#c0cad9;cursor:pointer}
+.filter.active{background:#20365c;color:#c8d9ff;border-color:#385b98}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{min-width:0;overflow:hidden;background:var(--surface);border:1px solid var(--border);border-radius:12px;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px #0003}
+.cover{width:100%;aspect-ratio:16/9;background:#202c40;display:grid;place-items:center;overflow:hidden;color:#8292aa;font-size:35px}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.content{padding:16px}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.category{font-size:11px;background:#20365c;color:#b8ceff;padding:4px 8px;border-radius:5px}
+.creator{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.game-title{display:flex;align-items:center;gap:9px;font-size:18px;margin:0 0 8px;overflow-wrap:anywhere}
+.game-icon{width:30px;height:30px;flex:0 0 30px;object-fit:cover;border-radius:6px;background:#26354c}
+.description{font-size:13px;color:#a8b5c8;min-height:43px;margin:0 0 16px;overflow-wrap:anywhere}
+.play{display:flex;align-items:center;justify-content:center;min-height:40px;background:var(--blue);border-radius:8px;color:white;font-size:13px;font-weight:650}
+.status{padding:34px 20px;text-align:center;border:1px dashed #34435b;border-radius:12px;background:var(--surface);color:var(--muted)}
+.status strong{display:block;color:var(--text);margin-bottom:6px}
+.status p{margin:0;font-size:14px}
+.status button{margin-top:15px}
+.hidden{display:none!important}
+.publish-strip{margin-top:40px;padding:25px;display:flex;align-items:center;justify-content:space-between;gap:20px;background:#14223a;border:1px solid #2a3e60;border-radius:12px}
+.publish-strip h3{margin:0 0 5px;font-size:18px}
+.publish-strip p{margin:0;color:#a8b5c8;font-size:14px}
+footer{border-width:1px 0 0}
+.footer-inner{min-height:76px;color:var(--muted);font-size:13px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-links{gap:12px}}
+@media(max-width:600px){.nav{min-height:62px}.brand{font-size:15px}.nav-links{gap:12px;font-size:12px}.nav-links .publish-nav{display:none}.hero{padding:44px 0 36px}.hero p{font-size:15px}.heading{align-items:stretch;flex-direction:column}.search{width:100%}.grid{grid-template-columns:1fr}.publish-strip{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column;padding:18px 0}}
 </style>
 </head>
 <body>
-<header><div class="container nav"><a class="brand" href="index.html"><span class="mark">B</span><span>Buildora Game Store</span></a><a class="back" href="index.html">← Retour au catalogue</a></div></header>
-<main class="container">
-<section class="intro"><span class="eyebrow">Espace créateurs</span><h1>Publiez votre jeu sur Buildora.</h1><p>Vous avez créé un jeu ? Envoyez-nous votre proposition. Chaque jeu est examiné avant une éventuelle publication.</p></section>
-<section class="panel"><h2>Comment proposer votre jeu ?</h2><ol class="steps">
-<li class="step"><span class="number">1</span><div><strong>Préparez les fichiers</strong><p>Joignez le fichier HTML et tous les fichiers nécessaires au jeu. Vous pouvez les regrouper dans une archive ZIP.</p></div></li>
-<li class="step"><span class="number">2</span><div><strong>Présentez votre projet</strong><p>Indiquez le titre, une description, les commandes et les éventuelles dépendances.</p></div></li>
-<li class="step"><span class="number">3</span><div><strong>Envoyez votre e-mail</strong><p>Ajoutez les fichiers en pièce jointe et précisez le nom du créateur si vous souhaitez qu'il apparaisse sur le site.</p></div></li>
-<li class="step"><span class="number">4</span><div><strong>Attendez la vérification</strong><p>La publication n'est pas automatique. Nous examinons les fichiers et les informations avant de décider si le jeu peut être ajouté.</p></div></li>
-</ol></section>
-<section class="panel"><h2>Informations à fournir</h2><ul class="details">
-<li><strong>Nom du jeu</strong> et description.</li><li><strong>Fichiers du jeu</strong> : HTML et fichiers complémentaires.</li><li><strong>Nom du créateur</strong> : facultatif.</li><li><strong>Icône</strong> : facultative, idéalement carrée.</li><li><strong>Image de présentation</strong> : facultative, pour la couverture de la carte.</li><li><strong>Catégorie</strong> : facultative.</li>
-</ul></section>
-<section class="panel"><h2>Conditions de soumission</h2><ul class="details">
-<li>Vous devez disposer des droits nécessaires sur le jeu et ses ressources.</li><li>N'incluez aucune clé API, aucun mot de passe ni donnée confidentielle dans les fichiers.</li><li>Le jeu ne doit pas contenir de code malveillant ou de collecte cachée de données.</li><li>L'envoi ne garantit ni l'acceptation ni la publication.</li>
-</ul></section>
-<section class="panel"><h2>Rémunération</h2><p style="color:#b0bdd0;margin-bottom:0">Aucune rémunération n'est actuellement proposée. Toute évolution future, notamment l'ajout de publicités ou d'un système de revenus, dépendra des démarches, autorisations et conditions applicables. Aucune rémunération future n'est garantie.</p></section>
-<div class="notice"><strong>Important :</strong> le bouton ouvre votre application de messagerie. Vous devrez joindre vous-même le fichier HTML ou l'archive ZIP avant d'envoyer le message.</div>
-<section class="contact"><div><h2>Envoyer une proposition</h2><p>Contact : <a class="email" href="mailto:metaserviceofficiel@gmail.com">metaserviceofficiel@gmail.com</a></p></div><a class="button" href="mailto:metaserviceofficiel@gmail.com?subject=Proposition%20de%20jeu%20-%20Buildora%20Game%20Store&body=Bonjour%2C%0A%0ANom%20du%20jeu%20%3A%0ADescription%20%3A%0ANom%20du%20cr%C3%A9ateur%20(facultatif)%20%3A%0ACat%C3%A9gorie%20(facultatif)%20%3A%0A%0AJ'ai%20joint%20les%20fichiers%20du%20jeu.%0A%0ACordialement.">Préparer mon e-mail ↗</a></section>
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html"><span class="brand-mark">B</span><span>Buildora Game Store</span></a>
+    <nav class="nav-links">
+      <a href="#catalogue">Les jeux</a>
+      <a class="publish-nav" href="publier.html">Publier son jeu</a>
+      <a href="aide.html">Centre d'aide</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <span class="eyebrow">La bibliothèque de jeux Buildora</span>
+    <h1>De nouveaux jeux à découvrir.</h1>
+    <p>Explorez les jeux publiés par Buildora et par des créateurs. Trouvez votre prochain jeu et découvrez les projets de la communauté.</p>
+    <div class="actions">
+      <a class="button primary" href="#catalogue">Explorer les jeux</a>
+      <a class="button secondary" href="publier.html">Proposer un jeu</a>
+    </div>
+  </div>
+</section>
+
+<main class="container" id="catalogue">
+  <div class="heading">
+    <div><h2>Catalogue des jeux</h2><p class="subtext" id="game-count">Chargement du catalogue…</p></div>
+    <input class="search" id="search" type="search" placeholder="Rechercher un jeu…" aria-label="Rechercher un jeu">
+  </div>
+  <div class="filters" id="filters"></div>
+  <div class="status" id="loading"><strong>Chargement du catalogue</strong><p>Récupération des jeux publiés…</p></div>
+  <div class="status hidden" id="error"><strong>Le catalogue n'est pas accessible</strong><p>Vérifiez votre connexion ou réessayez.</p><button class="button secondary" id="retry">Réessayer</button></div>
+  <div class="status hidden" id="empty"><strong>Aucun jeu disponible pour le moment</strong><p>Les jeux apparaîtront ici lorsqu'ils auront été ajoutés au catalogue.</p></div>
+  <div class="status hidden" id="no-results"><strong>Aucun résultat</strong><p>Essayez un autre nom ou choisissez une autre catégorie.</p></div>
+  <div class="grid" id="grid"></div>
+  <section class="publish-strip">
+    <div><h3>Vous avez créé un jeu ?</h3><p>Proposez votre projet pour qu'il soit étudié en vue d'une publication.</p></div>
+    <a class="button primary" href="publier.html">Publier son jeu</a>
+  </section>
 </main>
-<footer><div class="container footer-inner"><span>© <span id="year"></span> Buildora Game Store</span><nav class="footer-links"><a href="index.html">Accueil</a><a href="aide.html">Centre d'aide</a></nav></div></footer>
-<script>document.getElementById("year").textContent=new Date().getFullYear()</script>
+
+<footer><div class="container footer-inner"><span>© <span id="year"></span> Buildora Game Store</span><nav class="footer-links"><a href="publier.html">Publier son jeu</a><a href="aide.html">Centre d'aide</a><a href="mailto:metaserviceofficiel@gmail.com">Contact</a></nav></div></footer>
+
+<script>
+const GAMES_JSON_URL="https://raw.githubusercontent.com/buildorastudio2023/buildoragamestore/refs/heads/main/games.json";
+const $=id=>document.getElementById(id);
+let games=[],activeCategory="Toutes";
+$("year").textContent=new Date().getFullYear();
+$("retry").addEventListener("click",loadGames);
+$("search").addEventListener("input",renderGames);
+
+function safeUrl(value){
+  try{const u=new URL(value);return ["https:","http:"].includes(u.protocol)?u.href:""}catch{return ""}
+}
+function str(value,fallback=""){
+  return (typeof value==="string"||typeof value==="number")?String(value).trim()||fallback:fallback;
+}
+function normalise(item,index){
+  if(!item||typeof item!=="object")return null;
+  const title=str(item.title||item.name),url=safeUrl(item.url||item.link||item.href);
+  if(!title||!url)return null;
+  return {
+    id:str(item.id,String(index)),title,url,
+    description:str(item.description||item.desc,"Aucune description disponible."),
+    creator:str(item.creator||item.author,"Créateur non précisé"),
+    category:str(item.category||item.genre,"Autre"),
+    icon:safeUrl(item.icon||item.gameIcon||item.logo),
+    cover:safeUrl(item.cover||item.image||item.thumbnail)
+  };
+}
+function state(target){
+  ["loading","error","empty","no-results"].forEach(id=$( "loading")?id=>$(id).classList.add("hidden"):()=>{});
+  if(target)$(target).classList.remove("hidden");
+}
+async function loadGames(){
+  ["loading","error","empty","no-results"].forEach(id=>$(id).classList.add("hidden"));
+  $("loading").classList.remove("hidden");$("grid").replaceChildren();$("filters").replaceChildren();
+  $("game-count").textContent="Chargement du catalogue…";
+  try{
+    const response=await fetch(GAMES_JSON_URL+"?t="+Date.now(),{cache:"no-store"});
+    if(!response.ok)throw new Error("games.json inaccessible");
+    const data=await response.json();
+    const list=Array.isArray(data)?data:Array.isArray(data.games)?data.games:Array.isArray(data.items)?data.items:null;
+    if(!list)throw new Error("Format JSON invalide");
+    games=list.map(normalise).filter(Boolean);activeCategory="Toutes";$("search").value="";
+    $("loading").classList.add("hidden");
+    if(!games.length){$("game-count").textContent="0 jeu";$("empty").classList.remove("hidden");return}
+    buildFilters();renderGames();
+  }catch(e){
+    console.error(e);$("loading").classList.add("hidden");$("error").classList.remove("hidden");$("game-count").textContent="Catalogue indisponible";
+  }
+}
+function buildFilters(){
+  $("filters").replaceChildren();
+  ["Toutes",...new Set(games.map(g=>g.category))].forEach(category=>{
+    const b=document.createElement("button");b.type="button";b.className="filter"+(category===activeCategory?" active":"");b.textContent=category;
+    b.addEventListener("click",()=>{activeCategory=category;buildFilters();renderGames()});$("filters").appendChild(b);
+  });
+}
+function createCard(game){
+  const card=document.createElement("article");card.className="card";
+  const cover=document.createElement("div");cover.className="cover";
+  if(game.cover){
+    const img=document.createElement("img");img.src=game.cover;img.alt="Illustration de "+game.title;img.loading="lazy";
+    img.onerror=()=>{img.remove();cover.textContent="▦"};cover.appendChild(img);
+  }else cover.textContent="▦";
+  const content=document.createElement("div");content.className="content";
+  const meta=document.createElement("div");meta.className="meta";
+  const cat=document.createElement("span");cat.className="category";cat.textContent=game.category;
+  const creator=document.createElement("span");creator.className="creator";creator.textContent=game.creator;meta.append(cat,creator);
+  const title=document.createElement("h3");title.className="game-title";
+  if(game.icon){const icon=document.createElement("img");icon.className="game-icon";icon.src=game.icon;icon.alt="";icon.loading="lazy";icon.onerror=()=>icon.remove();title.appendChild(icon)}
+  const titleText=document.createElement("span");titleText.textContent=game.title;title.appendChild(titleText);
+  const desc=document.createElement("p");desc.className="description";desc.textContent=game.description;
+  const play=document.createElement("a");play.className="play";play.href=game.url;play.target="_blank";play.rel="noopener noreferrer";play.textContent="Jouer";
+  content.append(meta,title,desc,play);card.append(cover,content);return card;
+}
+function renderGames(){
+  $("grid").replaceChildren();
+  const q=$("search").value.trim().toLocaleLowerCase("fr");
+  const visible=games.filter(g=>(activeCategory==="Toutes"||g.category===activeCategory)&&[g.title,g.description,g.category,g.creator].join(" ").toLocaleLowerCase("fr").includes(q));
+  $("game-count").textContent=games.length+(games.length>1?" jeux publiés":" jeu publié");
+  visible.forEach(g=>$("grid").appendChild(createCard(g)));
+  ["loading","error","empty","no-results"].forEach(id=>$(id).classList.add("hidden"));
+  if(!visible.length)$("no-results").classList.remove("hidden");
+}
+loadGames();
+</script>
 </body>
 </html>

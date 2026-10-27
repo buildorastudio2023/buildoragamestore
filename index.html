@@ -500,5 +500,216 @@ loadGames();
 
 })();
 </script>
+  
+<!-- Bannière de lecture du règlement — Buildora Studio -->
+<div id="reglement-banner" style="display: none;">
+  <div class="reglement-overlay"></div>
+
+  <div class="reglement-modal"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="reglement-title">
+
+    <div class="reglement-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           width="34" height="34" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor"
+           stroke-width="1.8" stroke-linecap="round"
+           stroke-linejoin="round">
+        <path d="M6 3h9l4 4v14H6z"/>
+        <path d="M14 3v5h5"/>
+        <path d="M9 13h7M9 17h7"/>
+      </svg>
+    </div>
+
+    <h2 id="reglement-title">Consentement &amp; Règlement</h2>
+
+    <p>
+     Nous utilisons Google Analytics afin d'améliorer Buildora Studio. 
+    </p>
+
+    <!-- MODIFIEZ LE LIEN CI-DESSOUS -->
+    <a class="reglement-link"
+       href="https://buildorastudio2023.github.io/Store/reglement.html"
+       target="_blank"
+       rel="noopener noreferrer">
+      Consulter le règlement
+    </a>
+
+    <button id="reglement-confirm" type="button">
+      J'ai lu le règlement et j'accepte la collecte de Google Analytics
+    </button>
+
+    <p class="reglement-note">
+      © 2026 Buildora Studio. Tous droits réservés.
+    </p>
+
+  </div>
+</div>
+
+<style>
+  #reglement-banner,
+  #reglement-banner * {
+    box-sizing: border-box;
+  }
+
+  #reglement-banner {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  #reglement-banner .reglement-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 15, 30, 0.72);
+    backdrop-filter: blur(5px);
+  }
+
+  #reglement-banner .reglement-modal {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    padding: 32px 28px;
+    text-align: center;
+    color: #202536;
+    background: #fff;
+    border: 1px solid #e7eaf0;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    animation: reglement-appear 0.25s ease-out;
+  }
+
+  #reglement-banner .reglement-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 62px;
+    height: 62px;
+    margin: 0 auto 18px;
+    color: #315ee7;
+    background: #edf2ff;
+    border-radius: 16px;
+  }
+
+  #reglement-banner h2 {
+    margin: 0 0 14px;
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  #reglement-banner p {
+    margin: 0 0 18px;
+    color: #626a7b;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  #reglement-banner .reglement-link {
+    display: inline-block;
+    margin-bottom: 22px;
+    color: #315ee7;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  #reglement-banner #reglement-confirm {
+    display: block;
+    width: 100%;
+    padding: 14px 18px;
+    color: #fff;
+    background: #315ee7;
+    border: 0;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  #reglement-banner #reglement-confirm:hover {
+    background: #244bc4;
+  }
+
+  #reglement-banner #reglement-confirm:focus-visible,
+  #reglement-banner .reglement-link:focus-visible {
+    outline: 3px solid #8ba8ff;
+    outline-offset: 3px;
+  }
+
+  #reglement-banner .reglement-note {
+    margin: 14px 0 0;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #858b98;
+  }
+
+  @keyframes reglement-appear {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @media (max-width: 480px) {
+    #reglement-banner .reglement-modal {
+      padding: 26px 20px;
+    }
+
+    #reglement-banner h2 {
+      font-size: 22px;
+    }
+  }
+</style>
+
+<script>
+(function () {
+  const STORAGE_KEY = "buildora_reglement_lu_v1";
+  const banner = document.getElementById("reglement-banner");
+  const confirmButton = document.getElementById("reglement-confirm");
+
+  if (!banner || !confirmButton) return;
+
+  // Déjà confirmé sur ce navigateur : ne rien afficher.
+  try {
+    if (localStorage.getItem(STORAGE_KEY) === "1") {
+      banner.remove();
+      return;
+    }
+  } catch (error) {
+    // Si le stockage est bloqué, la bannière reste utilisable.
+  }
+
+  // Première visite : afficher la bannière.
+  banner.style.display = "flex";
+  document.body.style.overflow = "hidden";
+
+  confirmButton.focus();
+
+  confirmButton.addEventListener("click", function () {
+    // Enregistrer la confirmation avant de fermer.
+    try {
+      localStorage.setItem(STORAGE_KEY, "1");
+    } catch (error) {
+      // Le masquage fonctionne pour cette page même si
+      // le navigateur interdit l'enregistrement.
+    }
+
+    banner.remove();
+    document.body.style.overflow = "";
+  });
+})();
+</script>
+
 </body>
 </html>
